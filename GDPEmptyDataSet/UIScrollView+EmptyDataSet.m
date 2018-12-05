@@ -135,7 +135,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
                     for (NSInteger section = 0; section < sections; section++) {
                         items += [dataSource tableView:tableView numberOfRowsInSection:section];
                     }
-                }
+                } 
             } else {
                 items = sections;
             }
