@@ -129,13 +129,18 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         if (dataSource && [dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
             
             NSInteger sections = [dataSource numberOfSectionsInTableView:tableView];
-            
+            //sections 不为1, 全部不显示展位图
+            //sections 等于1, 根据所有sections的row的总和,判断是否显示占位图; 如果实现了viewForHeaderInSection代理方法,(即使row的总和为0)也不显示占位图.
             if (sections == 1) {
                 if (dataSource && [dataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
                     for (NSInteger section = 0; section < sections; section++) {
                         items += [dataSource tableView:tableView numberOfRowsInSection:section];
                     }
-                } 
+                    
+                    if (dataSource && [dataSource respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
+                        items = 1;
+                    }
+                }
             } else {
                 items = sections;
             }
