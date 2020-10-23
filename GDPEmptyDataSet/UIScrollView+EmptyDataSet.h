@@ -1,10 +1,5 @@
 //
 //  UIScrollView+EmptyDataSet.h
-//  DZNEmptyDataSet
-//  https://github.com/dzenbot/DZNEmptyDataSet
-//
-//  Created by Ignacio Romero Zurbuchen on 6/20/14.
-//  Copyright (c) 2016 DZN Labs. All rights reserved.
 //  Licence: MIT-Licence
 //
 
